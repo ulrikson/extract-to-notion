@@ -20,8 +20,8 @@ A simple Python script that uses the OpenAI Whisper API to transcribe audio file
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your_username/your_repository.git
-cd your_repository
+git clone https://github.com/ulrikson/transcriber.git
+cd transcriber
 ```
 
 ### 2. Install Dependencies
@@ -47,7 +47,7 @@ OPENAI_API_KEY=your_api_key_here
 Run the script using Python:
 
 ```bash
-python your_script_name.py
+python main.py
 ```
 
 When prompted:
@@ -93,10 +93,10 @@ The script supports the following audio formats:
 ## File Structure
 
 ```
-your_repository/
+transcriber/
 │
-├── your_script_name.py      # The main Python script
-├── .env                     # Environment file containing the API key
+├── main.py      # The main Python script
+├── .gitignore               # Files and directories to be ignored by Git
 ├── requirements.txt         # Optional: List of dependencies
 └── README.md                # This README file
 ```
@@ -149,46 +149,6 @@ your_repository/
 - **Environment Variables:**
 
   Consider setting the `OPENAI_API_KEY` as an environment variable on your system instead of using a `.env` file.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. **Fork the Repository**
-
-   Click on the 'Fork' button on the top right to create a copy of this repository on your GitHub account.
-
-2. **Clone Your Fork**
-
-   ```bash
-   git clone https://github.com/your_username/your_repository.git
-   ```
-
-3. **Create a New Branch**
-
-   ```bash
-   git checkout -b feature/your_feature_name
-   ```
-
-4. **Make Changes**
-
-   Add your improvements or new features.
-
-5. **Commit and Push**
-
-   ```bash
-   git add .
-   git commit -m "Add your commit message here"
-   git push origin feature/your_feature_name
-   ```
-
-6. **Create a Pull Request**
-
-   Open a pull request on the original repository to merge your changes.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
