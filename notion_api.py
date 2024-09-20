@@ -43,16 +43,18 @@ def get_data(notion_db_id, title_content, body_content):
     }
 
 
-def create_page():
+def create_page(title, body):
     notion_api_key, notion_db_id = load_env_variables()
     url = "https://api.notion.com/v1/pages"
     headers = get_headers(notion_api_key)
-    data = get_data(notion_db_id)
+    data = get_data(notion_db_id, title, body)
 
     response = requests.post(url, headers=headers, json=data)
     return response.json()
 
 
 if __name__ == "__main__":
-    response = create_page()
+    response = create_page(
+        "Test Title", "This is a test page created using the Notion API."
+    )
     print(response)
