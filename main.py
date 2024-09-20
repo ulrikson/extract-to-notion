@@ -65,7 +65,7 @@ def analyze_image(api_key, image_path, model="gpt-4o-mini"):
                 ],
             }
         ],
-        "max_tokens": 300,
+        # "max_tokens": 300,
     }
     response = requests.post(
         "https://api.openai.com/v1/chat/completions", headers=headers, json=payload
