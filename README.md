@@ -1,160 +1,37 @@
-# OpenAI Whisper Transcription Script
+# Audio and Image Text Extractor To Notion
 
-A simple Python script that uses the OpenAI Whisper API to transcribe audio files in English or Swedish. The script reads your OpenAI API key from a `.env` file for security.
+This application allows you to transcribe audio files or extract text from image files using the OpenAI API. The extracted text is then uploaded to a user-specified database in Notion using the Notion API.
 
-## Features
+## Key Features
 
-- **Transcribe Audio Files:** Supports various audio formats like MP3, WAV, M4A, and FLAC.
-- **Language Support:** Transcribe in English (`en`), Swedish (`sv`), or auto-detect the language.
-- **Secure API Key Handling:** Utilizes a `.env` file to keep your OpenAI API key secure.
-- **Easy to Use:** Simple command-line interface for quick transcription.
+- **Audio Transcription**: Convert audio files into text using the OpenAI API.
+- **Image Text Extraction**: Extract text from image files using the OpenAI API.
+- **Notion Integration**: Upload the extracted text to a specified database in Notion.
 
-## Requirements
+## Prerequisites
 
-- Python 3.6 or higher
-- OpenAI account with an API key
-- `pip` package manager
+- Python installed on your machine
+- OpenAI API key
+- Notion API key and database ID
 
 ## Installation
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/ulrikson/transcriber.git
-cd transcriber
-```
-
-### 2. Install Dependencies
-
-Install the required Python packages using `pip`:
-
-```bash
-pip install openai python-dotenv
-```
-
-### 3. Set Up the `.env` File
-
-Create a `.env` file in the project directory and add your OpenAI API key:
+Create a `.env` file in the root directory and add your OpenAI and Notion API keys:
 
 ```env
-OPENAI_API_KEY=your_api_key_here
+OPENAI_API_KEY=your_openai_api_key
+NOTION_API_KEY=your_notion_api_key
+NOTION_DATABASE_ID=your_notion_database_id
 ```
-
-**Note:** Replace `your_api_key_here` with your actual OpenAI API key.
 
 ## Usage
 
-Run the script using Python:
-
-```bash
+```python
 python main.py
 ```
 
-When prompted:
+The extracted text will be automatically uploaded to the specified Notion database.
 
-1. **Enter the Path to the Audio File:**
+## Contributing
 
-   Provide the full path or relative path to the audio file you wish to transcribe.
-
-2. **Enter the Language:**
-
-   - Type `en` for English.
-   - Type `sv` for Swedish.
-   - Press **Enter** to auto-detect the language.
-
-### Example
-
-```bash
-Enter the path to the audio file: samples/meeting_notes.mp3
-Enter the language ('en' for English, 'sv' for Swedish, or press Enter for auto-detect): en
-
-Transcribed Text:
-
-[Your transcribed text will appear here]
-```
-
-## Supported Audio Formats
-
-The script supports the following audio formats:
-
-- **MP3**
-- **WAV**
-- **M4A**
-- **FLAC**
-- **WEBM**
-- **MP4**
-- **MPEG**
-- **MPGA**
-- **M4A**
-- **OGG**
-- **WMA**
-- **3GP**
-
-## File Structure
-
-```
-transcriber/
-│
-├── main.py      # The main Python script
-├── .gitignore               # Files and directories to be ignored by Git
-├── requirements.txt         # Optional: List of dependencies
-└── README.md                # This README file
-```
-
-## Troubleshooting
-
-- **API Key Not Found:**
-
-  If you receive an error about the API key not being found, ensure that:
-
-  - The `.env` file is in the same directory as your script.
-  - The key in the `.env` file is correctly named `OPENAI_API_KEY`.
-
-- **Invalid API Key:**
-
-  Make sure your API key is valid and has the necessary permissions.
-
-- **File Not Found:**
-
-  Ensure the path to your audio file is correct. Use an absolute path if necessary.
-
-- **Unsupported File Format:**
-
-  Confirm that your audio file is in a supported format listed above.
-
-## Customization
-
-- **Changing the Model:**
-
-  The script uses the `whisper-1` model by default. You can change the model by modifying the `model` parameter in the `transcribe_audio` function:
-
-  ```python
-  def transcribe_audio(client, file_path, language='auto', model='your_model_choice'):
-      # Rest of the code...
-  ```
-
-- **Improving Transcription Accuracy:**
-
-  - Use high-quality audio recordings.
-  - Minimize background noise.
-  - Ensure clear pronunciation in the audio.
-
-## Security
-
-- **API Key Safety:**
-
-  - Do not share your API key publicly.
-  - Ensure your `.env` file is included in your `.gitignore` file to prevent it from being pushed to GitHub.
-
-- **Environment Variables:**
-
-  Consider setting the `OPENAI_API_KEY` as an environment variable on your system instead of using a `.env` file.
-
-## Acknowledgments
-
-- [OpenAI](https://www.openai.com/) for providing the Whisper API.
-- [Python Dotenv](https://github.com/theskumar/python-dotenv) for managing environment variables.
-
-## Contact
-
-For any questions or suggestions, please open an issue or contact me at [erik@billebjer.se](mailto:erik@billebjer.se).
+Contributions are welcome! Please open an issue or submit a pull request.
