@@ -18,11 +18,11 @@ def get_headers(notion_api_key):
     }
 
 
-def get_data(notion_db_id):
+def get_data(notion_db_id, title_content, body_content):
     return {
         "parent": {"database_id": notion_db_id},
         "properties": {
-            "Name": {"title": [{"text": {"content": "Test from Python"}}]},
+            "Name": {"title": [{"text": {"content": title_content}}]},
         },
         "children": [
             {
@@ -33,10 +33,7 @@ def get_data(notion_db_id):
                         {
                             "type": "text",
                             "text": {
-                                "content": "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
-                                "link": {
-                                    "url": "https://en.wikipedia.org/wiki/Lacinato_kale"
-                                },
+                                "content": body_content,
                             },
                         }
                     ]
@@ -56,7 +53,6 @@ def create_page():
     return response.json()
 
 
-# Example usage
 if __name__ == "__main__":
     response = create_page()
     print(response)
