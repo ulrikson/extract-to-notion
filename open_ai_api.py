@@ -30,6 +30,8 @@ def transcribe_audio(file_path, language="auto", model="whisper-1"):
         transcription = client.audio.transcriptions.create(
             model=model, file=audio_file, language=language
         )
+
+    print(transcription.text)
     return transcription.text
 
 

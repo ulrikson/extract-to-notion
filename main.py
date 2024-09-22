@@ -31,7 +31,7 @@ def main():
         )
         try:
             result = transcribe_audio(file_path, language)
-            create_page(title_content=file_path, content=result)
+            create_page(title=file_path, body=result)
             print("\nTranscription has been added to Notion.")
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -39,6 +39,7 @@ def main():
         file_path = input("Enter the path to the image file: ")
         try:
             result = analyze_image(file_path)
+            print(result)
             create_page(title=file_path, body=result)
             print("\nImage analysis has been added to Notion.")
         except Exception as e:
